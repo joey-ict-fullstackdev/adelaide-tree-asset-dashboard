@@ -6,5 +6,6 @@ __pycache__/
 .vercel/
 data/raw/
 data/processed/trees_clean.geojson
-# no markdown file is published (README, CLAUDE, BUILD_SPEC, HANDOFF and any notes stay on disk only)
+# markdown stays private except the README (CLAUDE, BUILD_SPEC, HANDOFF, INTERVIEW_WALKTHROUGH and any notes)
 *.md
+!README.md
