@@ -1,0 +1,10 @@
+.venv/
+.env
+.env.*
+__pycache__/
+.pytest_cache/
+.vercel/
+data/raw/
+data/processed/trees_clean.geojson
+# no markdown file is published (README, CLAUDE, BUILD_SPEC, HANDOFF and any notes stay on disk only)
+*.md

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adelaide street trees</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%231f6fb2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Source+Serif+4:ital,wght@1,400;1,600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <div class="map-wrap">
+      <div id="map" aria-label="Map of street trees"></div>
+      <form id="search" class="search" role="search" autocomplete="off">
+        <label for="q" class="visually-hidden">Search trees</label>
+        <input id="q" type="search" maxlength="200" placeholder="Try: mature jacarandas in Adelaide" required>
+        <button type="submit">Search</button>
+      </form>
+      <div id="summary" class="summary" role="status" hidden>
+        <p id="summary-text"></p>
+        <button type="button" id="clear">Clear</button>
+        <p id="summary-note" class="note" hidden></p>
+      </div>
+      <div class="legend" aria-label="Map legend">
+        <div class="legend-row"><span class="dot dot-recorded"></span>Species recorded</div>
+        <div class="legend-row"><span class="dot dot-missing"></span>Species not recorded</div>
+        <p class="legend-hint">Select a tree for its details.</p>
+      </div>
+    </div>
+
+    <aside class="panel" aria-label="Tree register summary">
+      <header class="panel-head">
+        <h1>Adelaide street trees</h1>
+        <p id="lede" class="lede">Loading trees…</p>
+      </header>
+
+      <section aria-labelledby="h-suburbs">
+        <h2 id="h-suburbs">Trees by suburb</h2>
+        <ul id="suburbs" class="bars"></ul>
+      </section>
+
+      <section aria-labelledby="h-quality">
+        <h2 id="h-quality">Data quality</h2>
+        <ul id="quality" class="quality"></ul>
+      </section>
+
+      <section aria-labelledby="h-species">
+        <h2 id="h-species">Most common species</h2>
+        <ul id="species" class="bars"></ul>
+      </section>
+
+      <footer class="panel-foot">
+        Street trees: City of Adelaide open data (CC BY 4.0).
+        Suburb boundaries: Department for Housing and Urban Development (CC BY 4.0).
+      </footer>
+    </aside>
+  </div>
+
+  <p id="status" class="status" role="status" hidden></p>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
